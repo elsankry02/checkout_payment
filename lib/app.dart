@@ -1,3 +1,4 @@
+import 'package:checkout_payment/core/constant/app_strings.dart';
 import 'package:checkout_payment/core/router/router.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,10 @@ class CheckoutPayment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(routerConfig: router.config());
+    return MaterialApp.router(
+      theme: ThemeData(fontFamily: kInter),
+      debugShowCheckedModeBanner: false,
+      routerConfig: router.config(),
+    );
   }
 }

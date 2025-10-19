@@ -1,0 +1,1 @@
+final kInter = "Inter";
