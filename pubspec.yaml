@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.2.1
   flutter_riverpod: ^2.6.1
   riverpod_annotation: ^2.6.1
+  flutter_credit_card: ^4.1.0
 
 dev_dependencies:
   flutter_test:

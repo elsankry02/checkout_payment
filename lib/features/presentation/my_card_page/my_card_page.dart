@@ -5,6 +5,7 @@ import 'package:checkout_payment/core/components/custom_primary_botton.dart';
 import 'package:checkout_payment/core/constant/app_colors.dart';
 import 'package:checkout_payment/core/constant/app_images.dart';
 import 'package:checkout_payment/core/extension/extenison.dart';
+import 'package:checkout_payment/core/router/router.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -87,6 +88,7 @@ class MyCardPage extends StatelessWidget {
             backGroundColor: AppColors.kGreen,
             padding: EdgeInsets.symmetric(vertical: context.height * 0.023),
             borderRadius: BorderRadius.circular(context.height * 0.015),
+            onTap: () => router.push(PaymentDetailsRoute()),
           ),
         ],
       ),
