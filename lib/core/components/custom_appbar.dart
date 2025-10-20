@@ -1,5 +1,5 @@
-import 'package:checkout_payment/core/constant/app_svgs.dart';
-import 'package:checkout_payment/core/extension/extenison.dart';
+import '../constant/app_svgs.dart';
+import '../extension/extenison.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:checkout_payment/core/extension/extenison.dart';
-import 'package:checkout_payment/core/router/router.dart';
+import '../../../core/extension/extenison.dart';
+import '../../../core/router/router.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()

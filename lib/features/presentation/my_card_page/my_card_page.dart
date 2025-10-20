@@ -1,11 +1,11 @@
 import 'package:auto_route/annotations.dart';
-import 'package:checkout_payment/core/components/custom_card_info_details.dart';
-import 'package:checkout_payment/core/components/custom_divider.dart';
-import 'package:checkout_payment/core/components/custom_primary_botton.dart';
-import 'package:checkout_payment/core/constant/app_colors.dart';
-import 'package:checkout_payment/core/constant/app_images.dart';
-import 'package:checkout_payment/core/extension/extenison.dart';
-import 'package:checkout_payment/core/router/router.dart';
+import '../../../core/components/custom_card_info_details.dart';
+import '../../../core/components/custom_divider.dart';
+import '../../../core/components/custom_primary_botton.dart';
+import '../../../core/constant/app_colors.dart';
+import '../../../core/constant/app_images.dart';
+import '../../../core/extension/extenison.dart';
+import '../../../core/router/router.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()

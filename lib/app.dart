@@ -1,5 +1,5 @@
-import 'package:checkout_payment/core/constant/app_strings.dart';
-import 'package:checkout_payment/core/router/router.dart';
+import 'core/constant/app_strings.dart';
+import 'core/router/router.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutPayment extends StatelessWidget {

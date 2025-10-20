@@ -1,4 +1,4 @@
-import 'package:checkout_payment/core/extension/extenison.dart';
+import '../extension/extenison.dart';
 import 'package:flutter/material.dart';
 
 class CustomPrimaryButton extends StatelessWidget {
