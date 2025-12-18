@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+
 import '../../../core/extension/extenison.dart';
 import '../../../core/router/router.dart';
-import 'package:flutter/material.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {
@@ -18,11 +19,10 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
   }
 
-  splashfunc() async {
-    await Future.delayed(
-      Duration(milliseconds: 700),
-      () => context.router.replace(MyCardRoute()),
-    );
+  Future<void> splashfunc() async {
+    await Future.delayed(Duration(milliseconds: 700), () {
+      context.router.replace(MyCardRoute());
+    });
   }
 
   @override

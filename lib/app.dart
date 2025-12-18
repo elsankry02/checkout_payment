@@ -1,6 +1,7 @@
 import 'core/constant/app_strings.dart';
-import 'core/router/router.dart';
 import 'package:flutter/material.dart';
+
+import 'core/router/router.dart';
 
 class CheckoutPayment extends StatelessWidget {
   const CheckoutPayment({super.key});

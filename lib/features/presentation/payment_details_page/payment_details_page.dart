@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../core/components/custom_appbar.dart';
 import '../../../core/constant/app_colors.dart';
@@ -42,7 +43,11 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
             child: Row(
               children: [
                 CustomCardDetails(
-                  assetName: AppSvgs.kCard,
+                  assetName: SvgPicture.asset(
+                    AppSvgs.kCard,
+                    height: 24,
+                    fit: BoxFit.scaleDown,
+                  ),
                   padding: EdgeInsets.symmetric(
                     horizontal: context.height * 0.029,
                     vertical: context.height * 0.016,
@@ -60,7 +65,11 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                   },
                 ),
                 CustomCardDetails(
-                  assetName: AppSvgs.kPaypal,
+                  assetName: SvgPicture.asset(
+                    AppSvgs.kPaypal,
+                    height: 24,
+                    fit: BoxFit.scaleDown,
+                  ),
                   padding: EdgeInsets.symmetric(
                     horizontal: context.height * 0.014,
                     vertical: context.height * 0.015,
@@ -78,7 +87,11 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                   },
                 ),
                 CustomCardDetails(
-                  assetName: AppSvgs.kPay,
+                  assetName: Image.asset(
+                    AppSvgs.kPaypal,
+                    height: 24,
+                    fit: BoxFit.scaleDown,
+                  ),
                   padding: EdgeInsets.symmetric(
                     horizontal: context.height * 0.023,
                     vertical: context.height * 0.015,

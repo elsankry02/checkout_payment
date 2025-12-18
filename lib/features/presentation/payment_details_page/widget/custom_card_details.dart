@@ -1,12 +1,12 @@
-import '../../../../core/extension/extenison.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
+import '../../../../core/extension/extenison.dart';
 
 class CustomCardDetails extends StatelessWidget {
   final Color borderColor;
   final void Function()? onTap;
   final EdgeInsetsGeometry? padding, margin;
-  final String assetName;
+  final Widget? assetName;
   const CustomCardDetails({
     super.key,
     required this.borderColor,
@@ -27,9 +27,7 @@ class CustomCardDetails extends StatelessWidget {
           borderRadius: BorderRadius.circular(context.height * 0.015),
           border: Border.all(color: borderColor, width: context.height * 0.002),
         ),
-        child: Center(
-          child: SvgPicture.asset(assetName, height: 24, fit: BoxFit.scaleDown),
-        ),
+        child: Center(child: assetName),
       ),
     );
   }
