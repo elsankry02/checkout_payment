@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:checkout_payment/core/components/custom_primary_botton.dart';
+import 'package:checkout_payment/core/router/router.dart';
+import 'package:checkout_payment/features/presentation/payment_details_page/widget/credit_card_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../core/components/custom_appbar.dart';
@@ -19,6 +23,8 @@ class PaymentDetailsPage extends StatefulWidget {
 }
 
 class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late PaymentDetails paymentDetails;
   @override
   void initState() {
@@ -86,76 +92,36 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                     });
                   },
                 ),
-                CustomCardDetails(
-                  assetName: Image.asset(
-                    AppSvgs.kPaypal,
-                    height: 24,
-                    fit: BoxFit.scaleDown,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: context.height * 0.023,
-                    vertical: context.height * 0.015,
-                  ),
-                  borderColor: paymentDetails == PaymentDetails.pay
-                      ? AppColors.kGreen
-                      : AppColors.kGrey,
-                  onTap: () {
-                    setState(() {
-                      paymentDetails = PaymentDetails.pay;
-                    });
-                  },
-                ),
               ],
             ),
           ),
           SizedBox(height: context.height * 0.034),
-          CreditCard(),
+          CreditCard(formKey: formKey, autovalidateMode: autovalidateMode),
+          SizedBox(height: context.height * 0.034),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
+              child: CustomPrimaryButton(
+                onTap: () {
+                  if (!formKey.currentState!.validate()) {
+                    log('payment');
+                  } else {
+                    context.router.push(ThankYouRoute());
+                  }
+                },
+                title: 'Payment',
+                style: context.kTextTheme.titleLarge!.copyWith(
+                  fontWeight: FontWeight.w500,
+                ),
+                backGroundColor: AppColors.kGreen,
+                padding: EdgeInsets.symmetric(vertical: context.height * 0.023),
+                borderRadius: BorderRadius.circular(context.height * 0.015),
+              ),
+            ),
+          ),
         ],
       ),
-    );
-  }
-}
-
-class CreditCard extends StatefulWidget {
-  const CreditCard({super.key});
-
-  @override
-  State<CreditCard> createState() => _CreditCardState();
-}
-
-class _CreditCardState extends State<CreditCard> {
-  final formKey = GlobalKey<FormState>();
-  String cardNumber = '', expiryDate = '', cardHolderName = '', cvvCode = '';
-  bool isShowBackView = false;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CreditCardWidget(
-          isChipVisible: false,
-          cardNumber: cardNumber,
-          expiryDate: expiryDate,
-          cardHolderName: cardHolderName,
-          cvvCode: cvvCode,
-          showBackView: isShowBackView,
-          onCreditCardWidgetChange: (value) {},
-        ),
-        CreditCardForm(
-          cardNumber: cardNumber,
-          expiryDate: expiryDate,
-          cardHolderName: cardHolderName,
-          cvvCode: cvvCode,
-          onCreditCardModelChange: (CreditCardModel) {
-            cardHolderName = CreditCardModel.cardHolderName;
-            isShowBackView = CreditCardModel.isCvvFocused;
-            cvvCode = CreditCardModel.cvvCode;
-            expiryDate = CreditCardModel.expiryDate;
-            cardNumber = CreditCardModel.cardNumber;
-            setState(() {});
-          },
-          formKey: formKey,
-        ),
-      ],
     );
   }
 }

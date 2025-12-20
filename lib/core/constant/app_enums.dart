@@ -1,1 +1,1 @@
-enum PaymentDetails { creditCard, payPal, pay }
+enum PaymentDetails { creditCard, payPal }
